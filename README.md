@@ -1,3 +1,24 @@
+
+# Vue Server-Side Rendering(SSR)
+官网地址：https://ssr.vuejs.org/
+# 什么是SSR？
+在服务端获取数据进行解析渲染，生成html代码返回给前端
+
+# 为什么要使用SSR?
+1. 更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面
+2. 更利于首屏渲染
+
+# SSR的局限
+1. 服务端压力较大
+2. 开发条件受限
+3. 学习成本相对较高
+
+# Vue SSR 的几种实现方式
+1. Node.js server 
+2. 预渲染
+3. Nuxt.js
+
+
 # vue-nuxt2-app
 
 > vue nuxt2 demo
@@ -5,7 +26,7 @@
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## 搭建指南
+## Nuxt搭建指南
 ``` bash
 # 使用脚手架
 $ npx create-nuxt-app <项目名>
