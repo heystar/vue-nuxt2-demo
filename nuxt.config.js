@@ -50,7 +50,8 @@ module.exports = {
   */
   axios: {
         // See https://github.com/nuxt-community/axios-module#options
-    prefix: process.env.NODE_ENV === 'production' ? '/' : '/api/',
+    // prefix: process.env.NODE_ENV === 'production' ? '/' : '/api/',
+    prefix: '/api/',
     proxy: true
   },
 

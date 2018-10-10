@@ -26,7 +26,7 @@
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-## Nuxt搭建指南
+## 搭建指南
 ``` bash
 # 使用脚手架
 $ npx create-nuxt-app <项目名>
@@ -209,10 +209,12 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
+部署
+
+```npm run build```
+
+```npm run start``` 需要保持服务开启,否则执行generate会报错
+
+```npm run generate``` 生成dist文件
+
