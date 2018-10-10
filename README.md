@@ -218,3 +218,15 @@ $ npm run dev
 
 ```npm run generate``` 生成dist文件
 
+> How to deploy on Netlify?
+
+Press the "New site from Git" button on the Netlify dashboard. 
+
+Authenticate with your repository host, select a repository to deploy, and continue. 
+
+You should land on step 3: "Build options, and deploy!"
+
+Configure:
+1. Branch to deploy: master, or which-ever branch you prefer
+2. Build command: npm run generate
+3. Publish directory: dist
