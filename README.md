@@ -200,6 +200,42 @@ export default {
 }
 ```
 示例参考/demo/store
+## 动态路由
+在 Nuxt.js 里面定义带参数的动态路由，需要创建对应的以下划线作为前缀的 Vue 文件 或 目录
+
+示例参考/demo/data
+
+注意：在 Nuxt.js 执行 generate 命令时，动态路由 会被忽略。
+
+上面的目录结构，Nuxt.js 只会生成路由 / 对应的静态文件。（因为 /users/:id 是动态路由） 如果想让 Nuxt.js 为动态路由也生成静态文件，你需要指定动态路由参数的值，并配置到 routes 数组中去。
+
+例如，我们可以在 nuxt.config.js 中为 /users/:id 路由配置如下：
+```
+generate: {
+    routes: [
+      '/demo/users/003',
+      '/demo/users/004',
+      '/demo/users/005'
+    ]
+  }
+```
+但是如果路由动态参数的值是动态的而不是固定的，应该怎么做呢？
+```
+const axios = require('axios')
+
+module.exports = {
+  generate: {
+    routes: function () {
+      return axios.get('http://dev.nuxtdemo.com:3001/api/v1/users')
+      .then((res) => {
+        return res.data.map((user) => {
+          return '/users/' + user.id
+        })
+      })      
+    }
+  }
+}
+```
 ## Build Setup
 
 ``` bash
@@ -211,6 +247,13 @@ $ npm run dev
 
 ```
 部署
+> 服务端渲染应用部署(推荐)
+
+```npm run build```
+
+```npm run start```
+
+> 静态应用部署
 
 ```npm run build```
 

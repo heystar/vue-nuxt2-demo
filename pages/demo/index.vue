@@ -5,6 +5,7 @@
     <li><nuxt-link to="/demo/ele-ui">Nuxt使用Element UI</nuxt-link></li>
     <li><nuxt-link to="/demo/head">Nuxt Head</nuxt-link></li>
     <li><nuxt-link to="/demo/store">Nuxt使用Vuex</nuxt-link></li>
+    <li><nuxt-link to="/demo/data">Nuxt 动态路由</nuxt-link></li>
   </ul>
 </template>
 <script>

@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 module.exports = {
   mode: 'universal',
@@ -78,6 +79,21 @@ module.exports = {
     '/api/': {
       target: 'http://dev.nuxtdemo.com:3001', // api主机
       pathRewrite: { '^/api': '' }
+    }
+  },
+  generate: {
+    // routes: [
+    //   '/demo/users/003',
+    //   '/demo/users/004',
+    //   '/demo/users/005'
+    // ]
+    routes: function () {
+      return axios.get('http://dev.nuxtdemo.com:3001/api/v1/users')
+      .then((res) => {
+        return res.data.map((user) => {
+          return '/demo/users/' + user.id
+        })
+      })
     }
   }
 }
