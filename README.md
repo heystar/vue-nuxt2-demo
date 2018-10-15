@@ -238,17 +238,19 @@ const axios = require('axios')
 
 module.exports = {
   generate: {
-    routes: function () {
+    routes: function (callback) {
       return axios.get('http://dev.nuxtdemo.com:3001/api/v1/users')
       .then((res) => {
-        return res.data.map((user) => {
-          return '/users/' + user.id
+        var routes = res.data.map((user) => {
+          return '/demo/users/' + user.id
         })
-      })      
+        callback(null, routes)
+      })
     }
   }
 }
 ```
+> 如果有多个接口,动态路由该怎么做呢？
 ## Build Setup
 
 ``` bash
@@ -262,17 +264,15 @@ $ npm run dev
 部署
 > 服务端渲染应用部署
 
-```npm run build```
+```npm run build``` 生成.nuxt文件
 
 ```npm run start```
 
 > 静态应用部署
 
-```npm run build```
-
-```npm run start``` 需要保持服务开启,否则执行generate会报错
-
 ```npm run generate``` 生成dist文件
+
+注意两种部署方式```axios.prefix```的修改
 
 > How to deploy on Netlify?
 

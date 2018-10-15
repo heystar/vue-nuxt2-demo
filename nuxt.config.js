@@ -51,7 +51,14 @@ module.exports = {
   */
   axios: {
         // See https://github.com/nuxt-community/axios-module#options
-    // prefix: process.env.NODE_ENV === 'production' ? '/' : '/api/',
+
+    // 静态应用部署(npm run generate) 若不跨域需要设置baseURL
+    // baseURL: process.env.NODE_ENV === 'production' ? 'http://dev.nuxtdemo.com:3001/' : '',
+
+    // 静态应用部署(npm run generate) 若跨域设置prefix,可配合nginx反向代理
+    // prefix: '/apis/',
+
+    // npm run dev,服务端渲染应用部署(npm run start) 跨域设置
     prefix: '/api/',
     proxy: true
   },
@@ -87,12 +94,13 @@ module.exports = {
     //   '/demo/users/004',
     //   '/demo/users/005'
     // ]
-    routes: function () {
+    routes: function (callback) {
       return axios.get('http://dev.nuxtdemo.com:3001/api/v1/users')
       .then((res) => {
-        return res.data.map((user) => {
+        var routes = res.data.map((user) => {
           return '/demo/users/' + user.id
         })
+        callback(null, routes)
       })
     }
   }
