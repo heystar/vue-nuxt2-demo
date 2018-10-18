@@ -14,8 +14,8 @@
 3. 学习成本相对较高
 
 # Vue SSR 的几种实现方式
-1. Node.js server 
-2. 预渲染
+1. Node.js server (Webpack + Node)
+2. 预渲染 (prerender-spa-plugin)
 3. Nuxt.js
 
 # 为什么选择Nuxt.js
@@ -286,3 +286,6 @@ Configure:
 1. Branch to deploy: master, or which-ever branch you prefer
 2. Build command: npm run generate
 3. Publish directory: dist
+
+## 扩展 React Next.js
+官网：https://nextjs.org/
